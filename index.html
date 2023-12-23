@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy Loading Images</title>
+    <style>
+      img.lazy {
+        background: url("") no-repeat center center;
+        height: 300px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+    <img class="lazy" alt="Ein Bild" />
+
+    <script>
+      // https://source.unsplash.com/random
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Bilder werden geladen
+            console.log("Loading a new random image");
+            entry.target.src = "https://source.unsplash.com/random";
+            observer.unobserve(entry.target);
+          } else {
+          }
+        });
+      });
+
+      const allImages = document.querySelectorAll("img.lazy");
+
+      allImages.forEach(img => observer.observe(img))
+    </script>
+  </body>
+</html>
